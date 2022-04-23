@@ -4,6 +4,7 @@ const router = express.Router();
 const { GET_CATEGORIES, NEW_CATEGORY, UPDATE_CATEGORY, DELETE_CATEGORY } = require("./Categories/Categories");
 
 router
+// Categories CRUD
 .get("/categories", GET_CATEGORIES)
 .post('/categories', NEW_CATEGORY)
 .put('/categories', UPDATE_CATEGORY)

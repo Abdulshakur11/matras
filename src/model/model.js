@@ -9,6 +9,7 @@ const Categories = sequelize.define("categories", {
 		type: DataTypes.BOOLEAN,
 		allowNull: false
 	}
+	
 });
 
 
