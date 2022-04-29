@@ -3,20 +3,30 @@ const { signUser } = require("../../lib/jwt");
 
 module.exports = {
 	POST_LOGIN: async (req, res) => {
-		const { username, password } = req.body;
-		const foundUser = await Users.findAll();
-
-		res.send("");
-
-		if (!foundUser) {
-			return res.status(401).send({
-				message: "Unauthorized",
+		try {
+			const { username, password } = req.body;
+			const foundUser = await Users.findAll({
+				where: {
+					username,
+					password,
+				},
 			});
-		}
-		res.send(foundUser);
 
-		res.status(200).json({
-			token: signUser({ id: foundUser.id }),
-		});
+			if (!foundUser[0]?.dataValues) {
+				return res.status(401).send({
+					message: "Unauthorized !",
+				});
+			} else {
+				res.status(200).json({
+					token: signUser({
+						id: foundUser[0]?.dataValues.id,
+						username: foundUser[0]?.dataValues.username,
+					}),
+				});
+			}
+		} catch (err) {
+			console.log(err);
+			res.send(err);
+		}
 	},
 };

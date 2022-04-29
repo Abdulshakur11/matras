@@ -61,16 +61,12 @@ const Products = sequelize.define("products", {
 
 const Users = sequelize.define('users', {
 	username: {
-		type: DataTypes.CHAR(45),
+		type: DataTypes.STRING,
 		allowNull: false
 	},
 	password: {
 		type: DataTypes.STRING,
 		allowNull: false,
-		validate: {
-			min: 6,
-			max: 14
-		}
 	}
 })
 

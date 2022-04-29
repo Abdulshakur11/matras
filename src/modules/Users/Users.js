@@ -5,8 +5,12 @@ module.exports = {
 		res.send(await Users.findAll());
 	},
 	NEW_USER: async (req, res) => {
-		const { username, password } = req.body;
-		await Users.create({ username, password });
-		res.send("New user is created");
+		try {
+			const { username, password } = req.body;
+			const newUser = await Users.create({username, password})			
+			res.send(newUser);
+		} catch (err) {
+			res.send(err);
+		}
 	},
 };
