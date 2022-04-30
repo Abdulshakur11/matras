@@ -1,4 +1,4 @@
-const { Products } = require("../../model/model");
+const { Products } = require("../model/model");
 
 module.exports = {
 	GET_PRODUCTS: async (_, res) => {
@@ -25,6 +25,7 @@ module.exports = {
 				isDelete,
 				categoryId,
 			} = req.body;
+	
 			let imagesArr = [];
 			const file = req.files;
 			imagesArr.push(file.map((e) => e.path));

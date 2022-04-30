@@ -1,4 +1,4 @@
-const { Categories } = require("../../model/model");
+const { Categories } = require("../model/model");
 
 module.exports = {
 	GET_CATEGORIES: async (_, res) => {
@@ -26,12 +26,14 @@ module.exports = {
 
 	DELETE_CATEGORY: async (req, res) => {
 		const { id, isDelete } = req.body;
-		const deleteCategory = await Categories.update({ isDelete },{
+		const deleteCategory = await Categories.update(
+			{ isDelete },
+			{
 				where: {
 					id,
 				},
 			}
 		);
-    res.send(deleteCategory)
+		res.send(deleteCategory);
 	},
 };

@@ -59,17 +59,76 @@ const Products = sequelize.define("products", {
 	},
 });
 
-const Users = sequelize.define('users', {
+const Users = sequelize.define("users", {
 	username: {
 		type: DataTypes.STRING,
-		allowNull: false
+		allowNull: false,
 	},
 	password: {
 		type: DataTypes.STRING,
 		allowNull: false,
-	}
-})
+	},
+});
 
+const Orders = sequelize.define("orders", {
+	name: {
+		type: DataTypes.STRING(64),
+		allowNull: false,
+	},
+	phone_number: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	product_name: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	product_qountity: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+	},
+	isDelete: {
+		type: DataTypes.BOOLEAN,
+	},
+});
+
+const Customers = sequelize.define("customers", {
+	phone_number: {
+		type: DataTypes.STRING,
+	},
+	feed_back: {
+		type: DataTypes.BOOLEAN,
+		allowNull: false,
+	},
+	isDelete: {
+		type: DataTypes.BOOLEAN,
+	},
+});
+
+const SliderTable = sequelize.define("slider_table", {
+	title: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	image_url: {
+		type: DataTypes.STRING,
+	},
+});
+
+const statusTable = sequelize.define("status_table", {
+	years_of_experience: {
+		type: DataTypes.INTEGER,
+	},
+	satisfied_customers: {
+		type: DataTypes.STRING,
+	},
+	annual_warranty: {
+		type: DataTypes.INTEGER,
+	},
+	daily_delivery: {
+		type: DataTypes.INTEGER,
+	},
+});
 // Products references to Category
 Categories.hasMany(Products);
 Products.belongsTo(Categories);
@@ -77,5 +136,9 @@ Products.belongsTo(Categories);
 module.exports = {
 	Categories,
 	Products,
-	Users
+	Users,
+	Orders,
+	Customers,
+	SliderTable,
+	statusTable,
 };

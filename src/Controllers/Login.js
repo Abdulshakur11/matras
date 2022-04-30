@@ -1,5 +1,5 @@
-const { Users } = require("../../model/model");
-const { signUser } = require("../../lib/jwt");
+const { Users } = require("../model/model");
+const { signUser } = require("../lib/jwt");
 
 module.exports = {
 	POST_LOGIN: async (req, res) => {

@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const { PORT } = require("./config");
 const { sequelize } = require("./lib/sequelize");
-const router = require("./modules");
+const router = require("./Controllers");
 
 sequelize.sync({ force: false }).then(() => console.log("OK"));
 
