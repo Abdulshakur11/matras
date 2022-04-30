@@ -3,7 +3,7 @@ const { SliderTable, statusTable } = require("../model/model");
 module.exports = {
 	GET_SLIDERS: async (_, res) => {
 		try {
-			res.send(await SliderTable.findAll());
+			res.json(await SliderTable.findAll());
 		} catch (err) {
 			console.log(err);
 		}

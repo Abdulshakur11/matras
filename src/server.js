@@ -9,8 +9,8 @@ sequelize.sync({ force: false }).then(() => console.log("OK"));
 
 app.use("/public", express.static("public"));
 
+app.use(cors());
 app.use(express.json());
 app.use(router);
-app.use(cors());
 
 app.listen(PORT, console.log(PORT));
