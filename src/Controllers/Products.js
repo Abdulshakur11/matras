@@ -28,7 +28,8 @@ module.exports = {
 	
 			let imagesArr = [];
 			const file = req.files;
-			imagesArr.push(file.map((e) => e.path));
+			const fileName = file.map((e) => `/public/uploads/${e.originalname}`);
+			imagesArr.push(fileName)
 			const [product_image] = imagesArr;
 			
 			await Products.create({
