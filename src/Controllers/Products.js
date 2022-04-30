@@ -28,7 +28,7 @@ module.exports = {
 	
 			let imagesArr = [];
 			const file = req.files;
-			const fileName = file.map((e) => `/public/uploads/${e.originalname}`);
+			const fileName = file.map((e) => `https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`.split(' ').join(''));
 			imagesArr.push(fileName)
 			const [product_image] = imagesArr;
 			
