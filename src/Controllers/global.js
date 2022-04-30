@@ -12,8 +12,9 @@ module.exports = {
 		try {
 			const { title } = req.body;
 			const file = req.files;
-			const [filePath] = file.map((e) => e.path);
-			const newSlider = await SliderTable.create({ title, image_url: filePath });
+			const [fileName] = file.map((e) => `https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`.split(' ').join(''));
+			const newSlider = await SliderTable.create({ title, image_url: fileName });
+			console.log(fileName);
 			res.send(newSlider);
 		} catch (err) {
 			console.log(err);
@@ -36,7 +37,6 @@ module.exports = {
 			console.log(err);
 		}
 	},
-  
   UPDATE_STATUS: async(req, res) => {
     const { id, years_of_experience, satisfied_customers, annual_warranty, daily_delivery } = req.body;
     await statusTable.update({years_of_experience, satisfied_customers, annual_warranty, daily_delivery}, {
