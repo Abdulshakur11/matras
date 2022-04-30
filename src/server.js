@@ -6,8 +6,7 @@ const router = require("./Controllers");
 
 sequelize.sync({ force: false }).then(() => console.log("OK"));
 
-app.use("/assets", express.static("uploads"));
-app.use(express.static("uploads"))
+app.use("/public", express.static("public"));
 
 app.use(express.json());
 app.use(router);
