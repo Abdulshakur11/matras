@@ -30,16 +30,16 @@ module.exports = {
 	},
 	NEW_STATUS: async (req, res) => {
 		try {
-      const { years_of_experience, satisfied_customers, annual_warranty, daily_delivery } = req.body;
-      await statusTable.create({ years_of_experience, satisfied_customers, annual_warranty, daily_delivery });
+      const { status_num,	status_text } = req.body;
+      await statusTable.create({ status_num,	status_text });
       res.send("Ok")
 		} catch (err) {
 			console.log(err);
 		}
 	},
   UPDATE_STATUS: async(req, res) => {
-    const { id, years_of_experience, satisfied_customers, annual_warranty, daily_delivery } = req.body;
-    await statusTable.update({years_of_experience, satisfied_customers, annual_warranty, daily_delivery}, {
+    const { id, status_num,	status_text } = req.body;
+    await statusTable.update({status_num,	status_text}, {
       where: {
         id
       }
