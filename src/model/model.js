@@ -116,18 +116,12 @@ const SliderTable = sequelize.define("slider_table", {
 });
 
 const statusTable = sequelize.define("status_table", {
-	years_of_experience: {
+	status_num: {
 		type: DataTypes.INTEGER,
 	},
-	satisfied_customers: {
-		type: DataTypes.STRING,
-	},
-	annual_warranty: {
-		type: DataTypes.INTEGER,
-	},
-	daily_delivery: {
-		type: DataTypes.INTEGER,
-	},
+	status_text: {
+		type: DataTypes.STRING
+	}
 });
 // Products references to Category
 Categories.hasMany(Products);
