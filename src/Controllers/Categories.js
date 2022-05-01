@@ -2,7 +2,11 @@ const { Categories } = require("../model/model");
 
 module.exports = {
 	GET_CATEGORIES: async (_, res) => {
-		res.send(await Categories.findAll());
+		res.send(await Categories.findAll({
+			order: [
+				["id", "ASC"]
+			]
+		}));
 	},
 
 	NEW_CATEGORY: async (req, res) => {
