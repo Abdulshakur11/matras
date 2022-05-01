@@ -117,7 +117,7 @@ const SliderTable = sequelize.define("slider_table", {
 
 const statusTable = sequelize.define("status_table", {
 	status_num: {
-		type: DataTypes.INTEGER,
+		type: DataTypes.STRING,
 	},
 	status_text: {
 		type: DataTypes.STRING
