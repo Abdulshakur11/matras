@@ -28,11 +28,7 @@ module.exports = {
 
 			let imagesArr = [];
 			const file = req.files;
-			const fileName = file.map((e) =>
-				`https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`
-					.split(" ")
-					.join("")
-			);
+			const fileName = file.map((e) => `https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`.split(" ").join(""));
 			imagesArr.push(fileName);
 			const [product_image] = imagesArr;
 
@@ -54,6 +50,7 @@ module.exports = {
 
 			res.send("New product is added");
 		} catch (err) {
+			console.log(err);
 			res.send(err);
 		}
 	},
