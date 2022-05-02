@@ -24,19 +24,19 @@ const Products = sequelize.define("products", {
 		allowNull: false,
 	},
 	product_weigth: {
-		type: DataTypes.STRING,
+		type: DataTypes.JSON,
 		allowNull: false,
 	},
 	product_size: {
-		type: DataTypes.STRING,
+		type: DataTypes.JSON,
 		allowNull: false,
 	},
 	product_warranty: {
-		type: DataTypes.STRING(64),
+		type: DataTypes.JSON,
 		allowNull: false,
 	},
 	product_volume: {
-		type: DataTypes.INTEGER,
+		type: DataTypes.JSON,
 		allowNull: false,
 	},
 	product_aksiy_price: {

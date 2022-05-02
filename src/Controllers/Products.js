@@ -25,20 +25,24 @@ module.exports = {
 				isDelete,
 				categoryId,
 			} = req.body;
-	
+
 			let imagesArr = [];
 			const file = req.files;
-			const fileName = file.map((e) => `https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`.split(' ').join(''));
-			imagesArr.push(fileName)
+			const fileName = file.map((e) =>
+				`https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`
+					.split(" ")
+					.join("")
+			);
+			imagesArr.push(fileName);
 			const [product_image] = imagesArr;
-			
+
 			await Products.create({
 				product_name,
 				product_price,
-				product_weigth,
-				product_size,
-				product_warranty,
-				product_volume,
+				product_weigth: [{ title: "Yuklama", value: product_weigth }],
+				product_warranty: [{ title: "Kafolat", value: product_warranty }],
+				product_size: [{ title: "O’lchami", value: product_size }],
+				product_volume: [{title: "Sig’imi", value: product_volume}],
 				product_aksiy_price,
 				product_description,
 				product_image,
