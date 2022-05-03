@@ -4,7 +4,7 @@ module.exports = {
 	GET_PRODUCTS: async (_, res) => {
 		res.send(
 			await Products.findAll({
-				order: [["id", "ASC"]],
+				order: [["id", "DESC"]],
 			})
 		);
 	},

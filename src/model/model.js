@@ -51,7 +51,7 @@ const Products = sequelize.define("products", {
 	isNew: {
 		type: DataTypes.BOOLEAN,
 	},
-	isAcrive: {
+	isActive: {
 		type: DataTypes.BOOLEAN,
 	},
 	isDelete: {
