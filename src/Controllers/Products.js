@@ -21,7 +21,7 @@ module.exports = {
 				product_aksiy_price,
 				product_description,
 				isNew,
-				isAcrive,
+				isActive,
 				isDelete,
 				categoryId,
 			} = req.body;
@@ -43,7 +43,7 @@ module.exports = {
 				product_description,
 				product_image,
 				isNew,
-				isAcrive,
+				isActive,
 				isDelete,
 				categoryId,
 			});
@@ -67,7 +67,7 @@ module.exports = {
 			product_aksiy_price,
 			product_description,
 			isNew,
-			isAcrive,
+			isActive,
 		} = req.body;
 
 		await Products.update(
@@ -81,7 +81,7 @@ module.exports = {
 				product_aksiy_price,
 				product_description,
 				isNew,
-				isAcrive,
+				isActive,
 			},
 			{
 				where: {
