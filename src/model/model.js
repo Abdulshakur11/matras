@@ -105,6 +105,51 @@ const Customers = sequelize.define("customers", {
 	},
 });
 
+const Techology = sequelize.define("technology", {
+	tech_name: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	tech_description: {
+		type: DataTypes.TEXT,
+	},
+	tech_image: {
+		type: DataTypes.JSON,
+	},
+	tech_video: {
+		type: DataTypes.STRING,
+	},
+	isNew: {
+		type: DataTypes.BOOLEAN,
+	},
+	isDelete: {
+		type: DataTypes.BOOLEAN,
+	},
+});
+
+const Location = sequelize.define("location", {
+	address: {
+		type: DataTypes.TEXT,
+		allowNull: false,
+	},
+	location: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	location_image: {
+		type: DataTypes.JSON
+	},
+	isActive: {
+		type: DataTypes.BOOLEAN,
+	},
+	description: {
+		type: DataTypes.TEXT,
+	},
+	isDelete: {
+		type: DataTypes.BOOLEAN,
+	},
+});
+
 const SliderTable = sequelize.define("slider_table", {
 	title: {
 		type: DataTypes.STRING,
@@ -120,9 +165,10 @@ const statusTable = sequelize.define("status_table", {
 		type: DataTypes.STRING,
 	},
 	status_text: {
-		type: DataTypes.STRING
-	}
+		type: DataTypes.STRING,
+	},
 });
+
 // Products references to Category
 Categories.hasMany(Products);
 Products.belongsTo(Categories);
@@ -130,6 +176,8 @@ Products.belongsTo(Categories);
 module.exports = {
 	Categories,
 	Products,
+	Techology,
+	Location,
 	Users,
 	Orders,
 	Customers,
