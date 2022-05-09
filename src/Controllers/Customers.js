@@ -2,7 +2,11 @@ const { Customers } = require("../model/model");
 
 module.exports = {
 	GET_CUSTOMERS: async (_, res) => {
-		res.send(await Customers.findAll());
+		res.send(await Customers.findAll({
+			order: [
+				["id", "DESC"]
+			]
+		}));
 	},
 	NEW_CUSTOMER: async (req, res) => {
 		try {

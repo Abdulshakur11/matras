@@ -70,6 +70,12 @@ module.exports = {
 			isActive,
 		} = req.body;
 
+		let imagesArr = [];
+			const file = req.files;
+			const fileName = file.map((e) => `https://my-app-hyfob.ondigitalocean.app/public/uploads/${e.originalname}`.split(" ").join(""));
+			imagesArr.push(fileName);
+			const [product_image] = imagesArr;
+
 		await Products.update(
 			{
 				product_name,
@@ -80,6 +86,7 @@ module.exports = {
 				product_volume: [{title: "Sig’imi", value: product_volume}],
 				product_aksiy_price,
 				product_description,
+				product_image,
 				isNew,
 				isActive,
 			},

@@ -55,7 +55,7 @@ router
 	// Products CRUD
 	.get("/products", GET_PRODUCTS)
 	.post("/products", upload.array("media"), NEW_PRODUCTS)
-	.put("/products", UPDATE_PRODUCTS)
+	.put("/products", upload.array("media"), UPDATE_PRODUCTS)
 	.delete("/products", DELETE_PRODUCTA)
 	// Technologies CRUD
 	.get("/technology", GET_TECHNOLOGY)
